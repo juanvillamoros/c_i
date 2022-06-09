@@ -1,0 +1,27 @@
+
+<a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>Menú</a>
+<div id="offcanvas-slide" uk-offcanvas>
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-default">        
+          <% if user_signed_in? %>
+            <li class="uk-nav-header">Menú</li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="#"><%= link_to "Contact Importer", root_path, class: "navbar-brand" %></a></li>
+            <li><a href="#"><%= link_to "Import Contact", import_path, class: "nav-link" %></a></li>
+            <li><a href="#"><%= link_to "Uploaded Files", user_imported_files_path, class: "nav-link" %></a></li>
+            <li><a href="#"><%= link_to "Contacts", user_contacts_path, class: "nav-link" %></a></li>
+            <li><a href="#"><%= link_to "Edit account", edit_user_registration_path, class: "nav-link" %></a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="#"><%= link_to 'Log Out', destroy_user_session_path, class: "nav-link", method: :delete %></a></li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+
+    </div>
+</div>

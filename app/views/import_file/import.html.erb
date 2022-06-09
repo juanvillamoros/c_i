@@ -1,0 +1,55 @@
+<h1>Importar Contactos</h1>
+<form>
+<%= form_with model: @import_file, url: import_path do |form| %>
+  <%= form.label :file, "Importar Archivo", class: "form-label" %> 
+  <%= form.file_field :file, accept: "text/csv", required: true %>
+    <% @import_file.errors.full_messages_for(:file).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</form>
+
+<form class="uk-form-horizontal uk-margin-large">
+    <div class="uk-margin">
+      <%= form.label 'column[name]', 'Nombre:', class:'uk-form-label' %>
+      <div class="uk-form-controls">
+        <%= form.text_field 'column[name]', placeholder: "ingrese colomna correspondiente", class:'uk-input', required: true %>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <%= form.label 'column[birthdate]', 'F. de nacimiento', class:'uk-form-label' %>
+      <div class="uk-form-controls">
+        <%= form.text_field 'column[birthdate]', placeholder: "ingrese colomna correspondiente", class:'uk-input', required: true %>
+      </div>
+    </div> 
+    <div class="uk-margin">
+      <%= form.label 'column[phone]', 'No. Celular', class:'uk-form-label' %>
+      <div class="uk-form-controls">
+        <%= form.text_field 'column[phone]', placeholder: "ingrese colomna correspondiente", class:'uk-input', required: true %>
+      </div>
+    </div> 
+    <div class="uk-margin">
+      <%= form.label 'column[address]', 'Dirección', class:'uk-form-label' %>
+      <div class="uk-form-controls">
+        <%= form.text_field 'column[address]', placeholder: "ingrese colomna correspondiente", class:'uk-input', required: true %>
+      </div>
+    </div> 
+    <div class="uk-margin">
+      <%= form.label 'column[address]', 'T. de Crédito', class:'uk-form-label' %>
+      <div class="uk-form-controls">
+        <%= form.text_field 'column[credit_card]', placeholder: "ingrese colomna correspondiente", class:'uk-input', required: true %>
+      </div>
+    </div> 
+    <div class="uk-margin">
+      <%= form.label 'column[address]', 'E-mail', class:'uk-form-label' %>
+      <div class="uk-form-controls">
+        <%= form.text_field 'column[email]', placeholder: "ingrese colomna correspondiente", class:'uk-input', required: true %>
+      </div>
+    </div> 
+</form>
+
+
+
+  <div>
+    <%= form.submit "Import", class: "btn btn-primary mt-3" %>
+  </div>
+<% end %>
